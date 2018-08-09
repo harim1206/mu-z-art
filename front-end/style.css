@@ -1,0 +1,86 @@
+body {
+  margin:0;
+  padding:0;
+  overflow: hidden
+
+}
+canvas {
+  margin:auto;
+}
+
+
+h1 {
+  
+  font-family: 'Roboto';
+  font-weight: lighter;
+  font-size: 65px;
+  color: red;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-style: bold;
+
+
+}
+
+#logo-wrapper-div{
+  width: 1000px;
+  background-color: white;
+  opacity: 0.8;
+  margin-left: auto;
+  margin-right: auto;
+}
+#logo-image{
+  height: 100px;
+
+}
+
+#testFont{
+  font-family: 'Mbb_Doubleline';
+  text-align: center;
+}
+
+
+#sketch-holder {
+  margin:auto;
+  margin-top: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#buttons-wrap-div{
+  margin-top: 1%;
+}
+
+#logo-wrapper-div{
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+
+}
+
+.far{
+  color: red;
+}
+
+#yo {
+  color: blue;
+}
+
+.fab {
+  color: red;
+}
+
+.card-content {
+  margin-left: 10x
+  margin-top: 10x
+}
+.card {
+  margin-left: 10x
+  margin-top: 10x
+}
+
+.card-title {
+  margin-left: 10x
+  margin-top: 10x
+}

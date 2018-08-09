@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Mu-Z-Art</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="libraries/p5.sound.js"></script>
+
+</head>
+
+
+
+<body background="images/flowers2.jpg">
+
+	<div id="logo-wrapper-div">
+		<h1 id="testFont"> MU-Z-ART</h1>
+	</div>
+
+	<div id="canvas-wrap-div">
+		<div id="sketch-holder">
+	    <!-- Our sketch will go here! -->
+	  </div>
+	</div>
+
+	<div id="buttons-wrap-div" align="center">
+		<i class="far fa-play-circle fa-3x" id="play-button"></i>
+		<i class="far fa-plus-square fa-3x" id="new-button"></i>
+		<i class="far fa-save fa-3x" id="save-button" style="color:red"></i>
+		<i class="far fa-eye fa-3x" style="color:red" id="show-list-button"></i>
+	</div>
+
+	<div id="saved-drawings-list-wrapper" align="center">
+		<form id="save-form">
+			<input type="text" id="drawing-title" placeholder="Title">
+			<input type="text" id="drawing-person-name" placeholder="Your Name">
+			<input type="submit" id="submit-button"></input>
+
+		</form>
+		<select id="drawing-select-list"></select>
+
+
+	</div>
+
+	<script src="./eventHelperFunctions.js"></script>
+	<script src="./option1.js"></script>
+	<script src="./sound.js"></script>
+	<script src="./explodingParticle.js"></script>
+
+
+</body>
+</html>
