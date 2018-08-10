@@ -19,10 +19,29 @@
 
 
 
-<body background="images/flowers2.jpg">
+<body>
 
 	<div id="logo-wrapper-div">
-		<h1 id="testFont"> MU-Z-ART</h1>
+		<h1> mu-z-art </h1>
+
+		<div class="buttons-wrap-div" align="center">
+			<i class="far fa-play-circle fa-3x" id="play-button"></i>
+			<i class="far fa-plus-square fa-3x" id="new-button"></i>
+			<i class="far fa-save fa-3x" id="save-button"></i>
+			<i class="far fa-eye fa-3x" id="show-list-button"></i>
+		</div>
+
+		<div class="saved-drawings-list-wrapper" align="center">
+			<form id="save-form">
+				<input type="text" id="drawing-title" placeholder="Title">
+				<input type="text" id="drawing-person-name" placeholder="Your Name">
+				<input type="submit" id="submit-button"></input>
+
+			</form>
+			<select id="drawing-select-list"></select>
+
+		</div>
+
 	</div>
 
 	<div id="canvas-wrap-div">
@@ -31,27 +50,10 @@
 	  </div>
 	</div>
 
-	<div id="buttons-wrap-div" align="center">
-		<i class="far fa-play-circle fa-3x" id="play-button"></i>
-		<i class="far fa-plus-square fa-3x" id="new-button"></i>
-		<i class="far fa-save fa-3x" id="save-button" style="color:red"></i>
-		<i class="far fa-eye fa-3x" style="color:red" id="show-list-button"></i>
-	</div>
 
-	<div id="saved-drawings-list-wrapper" align="center">
-		<form id="save-form">
-			<input type="text" id="drawing-title" placeholder="Title">
-			<input type="text" id="drawing-person-name" placeholder="Your Name">
-			<input type="submit" id="submit-button"></input>
-
-		</form>
-		<select id="drawing-select-list"></select>
-
-
-	</div>
 
 	<script src="./eventHelperFunctions.js"></script>
-	<script src="./option1.js"></script>
+	<script src="./canvas.js"></script>
 	<script src="./sound.js"></script>
 	<script src="./explodingParticle.js"></script>
 

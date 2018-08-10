@@ -1,4 +1,4 @@
-console.log(`hello`)
+
 var paths = []
 // Are we painting?
 let painting = false
@@ -18,11 +18,7 @@ var r, g, b;
 document.getElementById('save-form').style.display = "none"
 document.getElementById('drawing-select-list').style.display = "none"
 
-
-function preload() {
-	console.log(`anybody?`)
-}
-
+// setup block runs once, and is typically used for initialization, or for creating a program that does not need a loop running code repeatedly
 function setup(position) {
 	let canvas = createCanvas(1000, 450)
 	canvas.parent('sketch-holder');
@@ -39,7 +35,8 @@ function setup(position) {
 
 }
 
-
+// draw block runs repeatedly, and is used for animation.
+// number of execution of the block is controlled by frameRate(x) in setup, by x times per second
 function draw() {
 	background(250)
 
@@ -174,7 +171,6 @@ Particle.prototype.noteDisplay = function(other){
 
 //
 // EVENT LISTENERS
-//
 //
 //
 //

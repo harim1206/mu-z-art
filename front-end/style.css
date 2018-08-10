@@ -1,7 +1,9 @@
 body {
   margin:0;
   padding:0;
-  overflow: hidden
+  overflow: hidden;
+  background-image: url("images/doodle.jpg");
+  background-size: 20%;
 
 }
 canvas {
@@ -10,39 +12,39 @@ canvas {
 
 
 h1 {
-  
-  font-family: 'Roboto';
+  position: absolute;
+  font-family: 'georgia';
   font-weight: lighter;
-  font-size: 65px;
-  color: red;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  font-style: bold;
-
+  font-size: 30px;
+  color: white;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  margin-left: 3%;
+  padding-top: 15px;
 
 }
 
 #logo-wrapper-div{
-  width: 1000px;
-  background-color: white;
-  opacity: 0.8;
-  margin-left: auto;
-  margin-right: auto;
-}
-#logo-image{
-  height: 100px;
-
+  width: 100%;
+  background-color: rgb(239, 224, 186);
+  text-align: left;
+  display: flex;
 }
 
-#testFont{
-  font-family: 'Mbb_Doubleline';
-  text-align: center;
+.buttons-wrap-div{
+  margin-left: 40%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
+.saved-drawings-list-wrapper{
+  padding-top: 20px;
+  margin-left: 10px;
+}
 
 #sketch-holder {
   margin:auto;
-  margin-top: 0%;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,35 +54,7 @@ h1 {
   margin-top: 1%;
 }
 
-#logo-wrapper-div{
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 0;
-
-}
 
 .far{
-  color: red;
-}
-
-#yo {
-  color: blue;
-}
-
-.fab {
-  color: red;
-}
-
-.card-content {
-  margin-left: 10x
-  margin-top: 10x
-}
-.card {
-  margin-left: 10x
-  margin-top: 10x
-}
-
-.card-title {
-  margin-left: 10x
-  margin-top: 10x
+  color: white;
 }
