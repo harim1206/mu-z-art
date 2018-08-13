@@ -2,31 +2,33 @@
 // Particle explosion function
 function execute(){
 	for(let i = 0; i < paths.length; i++){
-		console.log(`hello`)
+
 		let removeInterval = setInterval(()=>{
 				if(paths[i].particles.length > 0){
 					// NOTE: Create a new sound object with the current particle's location as the frequency.
 					if(paths[i].particles[0].isNote){
+						// thisNote is the frequency number on the major scale
 						let thisNote = yPositionToNote(paths[i].particles[0].position.y)
 						console.log(`thisNote`, thisNote)
 						let thisParticleSound = createSound(thisNote, 'sine')
 						thisParticleSound.env.play()
 					}
 
-					// EXPLOSION EFFECT ON Particle
+					// create explodingParticles array at this position
 					explode(paths[i].particles[0].position.x, paths[i].particles[0].position.y)
 					paths[i].particles.splice(0,1)
 
 				}else{
 					window.clearInterval(removeInterval)
 				}
-		// NOTE: Particle Trigger Speed
+		// NOTE: Particle Trigger Speed in milliseconds
   	}, 200)
+
 	}
 }
 
 // HELPER FUNCTION: CONVERT Y POSITION TO NOTE SCALE
-function yPositionToNote(yPosition, extra1){
+function yPositionToNote(yPosition){
 	return findClosestNote(majorScaleC3, 900 - (yPosition * 2))
 }
 
@@ -38,8 +40,8 @@ function findClosestNote(notesArray, input){
 	return closest
 }
 
-// HELPER FUNCTION
-function explode(x, y, extra1) {
+// HELPER FUNCTION - create explodingParticles array which contains explodingParticle objects
+function explode(x, y) {
 	let numParticles = random(2, 10)
 	for(let i = 0; i <= numParticles; i++){
 		let explodingParticle = new ExplodingParticle(x, y)
@@ -50,7 +52,6 @@ function explode(x, y, extra1) {
 
 
 function toggleSaveForm(){
-	debugger
   let form = document.getElementById('save-form')
   let submitButton = document.getElementById('submit-button')
 
@@ -69,8 +70,7 @@ function saveDrawing(e){
   let drawingTitle = document.getElementById('drawing-title')
   let drawingPersonName = document.getElementById('drawing-person-name')
   let pathsJSON = pathsToJSON(paths)
-  // let JSONString = JSONStringToPaths(pathsJSON[1])
-  // debugger
+
 
   let postData = {
     name: drawingPersonName.value,
@@ -204,207 +204,3 @@ function JSONStringToPaths(string){
 
   return paths
 }
-
-
-
-
-
-
-
-
-
-
-//  ARCHIVED CODE
-//
-//
-//
-//
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function discosound(counter) {
-// 		if (counter === 1) {
-// 			carribean.play()
-// 			console.log(1)
-// 		}else if (counter === 2) {
-// 			carribean.play()
-// 			tango.play()
-// 			console.log(2)
-// 			chacha.play()
-// 		} else  if (counter === 3) {
-// 			carribean.play()
-// 			song.play()
-// 			console.log(3)
-// 		} else {
-// 			console.log("Here")
-// 		}
-// }
-
-
-// var counterp = 0
-// function executeguitar(){
-// 	for(let i = 0; i < paths.length; i++){
-//
-// 		let removeInterval = setInterval(()=>{
-// 				if(paths[i].particles.length > 0){
-//
-//
-// 					counterp++
-// 						if(counterp === 3) {
-// 							counterp = 0
-// 						  guitar2.stop()
-// 							guitar3.stop()
-// 							guitar4.stop()
-// 							guitar6.stop()
-// 					}
-//
-// 					// NOTE: Create a new sound object with the current particle's location as the frequency.
-// 					if(paths[i].particles[0].position.y < 100) {
-//               guitar2.play()
-// 					} else if (paths[i].particles[0].position.y < 200 && paths[i].particles[0].position.y >= 100 ) {
-//              guitar3.play()
-// 					} else if (paths[i].particles[0].position.y < 300 && paths[i].particles[0].position.y >= 200 ) {
-//              guitar4.play()
-// 					} else {
-// 						guitar6.play()
-// 					}
-//
-// 					// EXPLOSION EFFECT ON Particle
-// 					explode(paths[i].particles[0].position.x, paths[i].particles[0].position.y)
-// 					paths[i].particles.splice(0,1)
-//
-// 					if (paths[i].particles.length === 0) {
-// 						guitar2.stop()
-// 						guitar3.stop()
-// 						guitar4.stop()
-// 						guitar6.stop()
-// 					}
-//
-// 				}else{
-// 					window.clearInterval(removeInterval)
-// 				}
-// 		// NOTE: Particle Trigger Speed
-//   }, 500)
-// 	}
-// }
-//
-//
-// var counters = 0
-// function executesax2(){
-// 	for(let i = 0; i < paths.length; i++){
-//
-// 		let removeInterval = setInterval(()=>{
-// 				if(paths[i].particles.length > 0){
-//
-//
-// 					counters++
-// 					if(counters === 6) {
-// 						saxx1.stop()
-// 						saxx2.stop()
-// 						saxx3.stop()
-// 						saxx4.stop()
-// 						saxx5.stop()
-// 						saxx6.stop()
-// 						saxx7.stop()
-// 						counters = 0
-// 				}
-//
-// 					// NOTE: Create a new sound object with the current particle's location as the frequency.
-// 					if(paths[i].particles[0].position.x < 200) {
-// 						saxx1.play()
-// 					} else if (paths[i].particles[0].position.x < 400 && paths[i].particles[0].position.x >= 200 ) {
-//              saxx2.play()
-// 					} else if (paths[i].particles[0].position.x < 600 && paths[i].particles[0].position.x >= 400 ) {
-// 						 saxx3.play()
-// 					 } else if (paths[i].particles[0].position.x < 800 && paths[i].particles[0].position.x >= 600 ) {
-// 						saxx4.play()
-// 				   } else if (paths[i].particles[0].position.x < 900 && paths[i].particles[0].position.x >= 800 ) {
-// 						saxx5.play()
-// 					} else {
-// 						saxx6.play()
-// 					}
-//
-// 					// EXPLOSION EFFECT ON Particle
-// 					explode(paths[i].particles[0].position.x, paths[i].particles[0].position.y)
-// 					paths[i].particles.splice(0,1)
-//
-// 					if (paths[i].particles.length === 0) {
-// 						saxx1.stop()
-// 						saxx2.stop()
-// 						saxx3.stop()
-// 						saxx4.stop()
-// 						saxx5.stop()
-// 						saxx6.stop()
-// 						saxx7.stop()
-// 					}
-//
-// 				}else{
-// 					window.clearInterval(removeInterval)
-// 				}
-// 		// NOTE: Particle Trigger Speed
-//   }, 600)
-// 	}
-// }
-
-
-
-// Second play button event listener function
-// function newexecute(){
-// 	for(let i = 0; i < paths.length; i++){
-// 		let removeInterval = setInterval(()=>{
-//       if(paths[i].particles.length > 0){
-// 				discosound(counter)
-// 				counter++
-// 				if(counter === 3){
-// 					counter = 0
-// 				}
-// 				explode(paths[i].particles[0].position.x, paths[i].particles[0].position.y)
-// 			  paths[i].particles.splice(0,1)
-// 		  }else{
-// 			 window.clearInterval(removeInterval)
-// 		  }
-//     }, random(150, 500))
-//    }
-// }
-
-
-
-// function newexecute(){
-//
-// 	drum10.stop()
-//
-// 	for(let i = 0; i < paths.length; i++){
-// 		let removeInterval = setInterval(()=>{
-// 			 // console.log(explodingParticles)
-//      if(paths[i].particles.length > 0){
-// 			 if(paths[i].particles[0].isNote){
-// 				 let thisNote = yPositionToNote(paths[i].particles[0].position.y)
-// 				 // console.log(`thisNote`, thisNote)
-// 				 let thisParticleSound = createSound(thisNote, 'saw-tooth')
-// 				 thisParticleSound.env.play()
-// 			 }
-//
-// 					explode(paths[i].particles[0].position.x, paths[i].particles[0].position.y)
-//
-//
-//
-// 				 paths[i].particles.splice(0,1)
-//
-//
-// 			 }else{
-// 				 // wave.freq(defaultFrequency)
-// 				 window.clearInterval(removeInterval)
-// 			 }
-// 	 }, random(900))
-// 	}
-// }

@@ -22,9 +22,9 @@ class ExplodingParticle {
 
   update() {
     push()
-      rotate(this.direction)
-      this.posX += this.xSpeed
-      this.posY += this.ySpeed
+    rotate(this.direction)
+    this.posX += this.xSpeed
+    this.posY += this.ySpeed
     pop()
     this.a -= 2
     this.radius -= 0.1

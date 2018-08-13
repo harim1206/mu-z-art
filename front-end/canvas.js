@@ -1,4 +1,5 @@
-
+// Array of path objects
+// Each path object contains an array of particles
 var paths = []
 // Are we painting?
 let painting = false
@@ -6,7 +7,7 @@ let painting = false
 let next = 0
 let counter = 0
 
-// Current and previous mouse positions
+// Current and previous mouse positions. They will be vector objects
 let current
 let previous
 
@@ -18,20 +19,23 @@ var r, g, b;
 document.getElementById('save-form').style.display = "none"
 document.getElementById('drawing-select-list').style.display = "none"
 
-// setup block runs once, and is typically used for initialization, or for creating a program that does not need a loop running code repeatedly
+// setup block runs once, used for initialization
 function setup(position) {
 	let canvas = createCanvas(1000, 450)
 	canvas.parent('sketch-holder');
 
 	current = createVector(0,0)
 	previous = createVector(0,0)
+
 	frameRate(60)
 
 	stroke(r, g, b);
-	fill(r, g, b, 127);
-	r = random(255);
-	g = random(255);
-	b = random(255);
+	fill(r, g, b, 127)
+	r = random(255)
+	g = random(255)
+	b = random(255)
+
+	// white background
 
 }
 
@@ -40,13 +44,14 @@ function setup(position) {
 function draw() {
 	background(250)
 
+
 	// If it's time for a new point
 	if(millis() > next && painting){
 		// grab mouse position
 		current.x = mouseX
 		current.y = mouseY
 
-		// add a particle with current position to current path
+		// add a particle with current position vector to current path array
 		// NOTE: CREATING A NEW PARTICLE
 		paths[paths.length-1].add(current)
 
@@ -58,7 +63,7 @@ function draw() {
 
 	// Draw all paths
 	for(let i = 0; i < paths.length; i++){
-		paths[i].update();
+		// paths[i].update();
 		paths[i].display();
 	}
 
@@ -94,78 +99,8 @@ function mouseReleased(){
 }
 
 
-// A Path is an array of particles
-function Path(){
-	this.particles = [];
-	this.hue = random(r, g, b);
-	r = random(255);
-	g = random(255);
-	b = random(255);
-
-}
-
-Path.prototype.add = function(position){
-	// Add a new particle with a position and hue
-
-	if(this.particles.length % 3 === 0){
-		this.particles.push(new Particle(position, this.hue, true))
-	}else{
-		this.particles.push(new Particle(position, this.hue, false))
-	}
-
-}
-
-Path.prototype.update = function(){
-// 	// Update path
-// 	for (let i = 0; i < this.particles.length; i++){
-// 		this.particles[i].update();
-// 	}
-}
-
-Path.prototype.display = function(extra1){
-	// Display path
-
-	for (let i = this.particles.length-1; i >= 0; i--){
-		if(this.particles[i].isNote){
-			this.particles[i].noteDisplay(this.particles[i+1]);
-
-		}else{
-			this.particles[i].display(this.particles[i+1]);
-		}
-	}
-}
 
 
-
-// PARTICLE OBJECT DEFINITION / METHODS
-// Particles along the path
-function Particle(position, hue, isNote){
-	this.position = createVector(position.x, position.y)
-	// true if it's a note particle
-	this.isNote = isNote
-}
-
-Particle.prototype.display = function(other){
-	stroke(r, g, b);
-	fill(r, g, b, 127);
-	ellipse(this.position.x,this.position.y, 2, 2)
-
-	if (other) {
-		line(this.position.x, this.position.y, other.position.x, other.position.y);
-	}
-}
-
-// Colored particles for Notes
-Particle.prototype.noteDisplay = function(other){
-
-	stroke(r, g, b);
-	fill(r, g, b, 127);
-	ellipse(this.position.x,this.position.y, 6, 6)
-	if (other) {
-		line(this.position.x, this.position.y, other.position.x, other.position.y);
-	}
-
-}
 
 
 
