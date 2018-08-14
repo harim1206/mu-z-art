@@ -21,7 +21,7 @@ document.getElementById('drawing-select-list').style.display = "none"
 
 // setup block runs once, used for initialization
 function setup(position) {
-	let canvas = createCanvas(1000, 450)
+	let canvas = createCanvas(window.innerWidth, window.innerHeight)
 	canvas.parent('sketch-holder');
 
 	current = createVector(0,0)
@@ -42,7 +42,7 @@ function setup(position) {
 // draw block runs repeatedly, and is used for animation.
 // number of execution of the block is controlled by frameRate(x) in setup, by x times per second
 function draw() {
-	background(250)
+	background(300)
 
 
 	// If it's time for a new point

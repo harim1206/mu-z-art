@@ -2,26 +2,13 @@ body {
   margin:0;
   padding:0;
   overflow: hidden;
+  /* background-color: white; */
   background-image: url("images/doodle.jpg");
-  background-size: 20%;
+  background-size: 40%;
 
 }
 canvas {
   margin:auto;
-}
-
-
-h1 {
-  position: absolute;
-  font-family: 'georgia';
-  font-weight: lighter;
-  font-size: 30px;
-  color: white;
-  margin-top: 0%;
-  margin-bottom: 0%;
-  margin-left: 3%;
-  padding-top: 15px;
-
 }
 
 #logo-wrapper-div{
@@ -31,20 +18,33 @@ h1 {
   display: flex;
 }
 
+h1 {
+  position: absolute;
+  font-family: 'georgia';
+  font-weight: lighter;
+  font-size: 24px;
+  color: white;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  margin-left: 3%;
+  padding-top: 10px;
+
+}
+
 .buttons-wrap-div{
-  margin-left: 40%;
+  margin-left: 42%;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.saved-drawings-list-wrapper{
+#saved-drawings-list-wrapper{
   padding-top: 20px;
   margin-left: 10px;
 }
 
 #sketch-holder {
   margin:auto;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   display: flex;
   justify-content: center;
   align-items: center;
